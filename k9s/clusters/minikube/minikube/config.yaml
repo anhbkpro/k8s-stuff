@@ -1,17 +1,13 @@
 k9s:
-  cluster: docker-desktop
-  readOnly: false
-  skin: staging_green
+  cluster: minikube
   namespace:
     active: istioinaction
     lockFavorites: false
     favorites:
       - istioinaction
-      - all
       - default
-      - kube-system
   view:
-    active: v1/pods
+    active: po
   featureGates:
-    nodeShell: true
+    nodeShell: false
   proxy: null

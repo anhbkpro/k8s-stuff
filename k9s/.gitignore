@@ -5,6 +5,8 @@ clusters/*
 !clusters/EXAMPLE-cluster/**
 !clusters/docker-desktop/
 !clusters/docker-desktop/**
+!clusters/minikube/
+!clusters/minikube/**
 
 # k9s runtime junk you don't want committed.
 *.log
