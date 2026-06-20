@@ -80,23 +80,29 @@ EXAMPLE template is tracked.
 
 ## Plugins reference
 
-| Shortcut | Scope | Action |
-|----------|-------|--------|
-| `Ctrl-L` | pods | Stern logs (needs `stern` on PATH) |
-| `Shift-E` | all  | Events for the selected object, paged |
-| `Ctrl-J` | all  | Resource YAML to pager |
-| `Shift-K` | pods | Ephemeral debug container (netshoot) |
+| Shortcut  | Scope | Action                                                          |
+| --------- | ----- | --------------------------------------------------------------- |
+| `Ctrl-L`  | pods  | Stern logs, app only (excludes `istio-proxy`, adds timestamps)  |
+| `Shift-L` | pods  | Stern logs, all containers (includes sidecar)                   |
+| `Shift-E` | all   | Events for the selected object, paged                           |
+| `Ctrl-J`  | all   | Resource YAML to pager                                          |
+| `Shift-K` | pods  | Ephemeral debug container (netshoot)                            |
+| `Shift-G` | pods  | Open Grafana pod dashboard (commented out — fill in host + UID) |
+
+`Ctrl-L`/`Shift-L` need `stern` on PATH. `Shift-G` is disabled until you set
+your Grafana host and dashboard UID/slug in `plugins.yaml`.
 
 ## Hotkeys reference
 
-| Key | Goes to |
-|-----|---------|
-| `Shift-1` | Deployments |
-| `Shift-2` | Services |
-| `Shift-3` | Ingresses |
-| `Shift-4` | ConfigMaps |
+| Key       | Goes to          |
+| --------- | ---------------- |
+| `Shift-0` | Pods             |
+| `Shift-1` | Deployments      |
+| `Shift-2` | Services         |
+| `Shift-3` | Ingresses        |
+| `Shift-4` | ConfigMaps       |
 | `Shift-5` | XRay deployments |
-| `Shift-6` | Cluster pulse |
+| `Shift-6` | Cluster pulse    |
 
 Custom hotkeys also show up in the `?` help view.
 

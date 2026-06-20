@@ -81,3 +81,21 @@ plugins:
     - $CONTEXT
     - --image=nicolaka/netshoot
     - --target=$CONTAINER
+
+  # Shift-G: open Grafana's pod dashboard for the selected pod in the browser.
+  # COMMENTED OUT until you fill in your Grafana host + dashboard UID/slug.
+  # Customize:
+  #   1. YOUR-GRAFANA-HOST  -> your Grafana base URL (e.g. localhost:3000 if port-forwarded)
+  #   2. DASHBOARD_UID/kubernetes-pod -> copy /d/<uid>/<slug> from the dashboard's URL
+  #   3. var-namespace / var-pod -> match your dashboard's template variable names
+  #      (kube-prometheus-stack's "Compute Resources / Pod" uses these defaults)
+  # On Linux, change `command: open` to `command: xdg-open`.
+  grafana:
+    shortCut: Shift-G
+    description: Grafana (pod)
+    scopes:
+    - po
+    command: open
+    background: true
+    args:
+    - "http://localhost:3000/d/c71c43db-3b65-4804-aadf-398761fbf2aa/kubernetes-pod?var-namespace=$NAMESPACE&var-pod=$NAME&from=now-1h&to=now"
