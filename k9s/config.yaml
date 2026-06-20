@@ -19,6 +19,8 @@ k9s:
     logoless: false
     crumbsless: false
     noIcons: false
+    # Full-screen logs by default (moved here from logger.fullScreen).
+    defaultsToFullScreen: false
   # Default shell-pod used by 's' on nodes / debug flows.
   shellPod:
     image: busybox:1.35.0
@@ -31,7 +33,6 @@ k9s:
     tail: 200
     buffer: 5000
     sinceSeconds: -1     # -1 = tail live
-    fullScreen: false
     textWrap: false
     showTime: false
   # Color alerts when usage crosses these percentages.
