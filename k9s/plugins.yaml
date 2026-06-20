@@ -1,0 +1,62 @@
+# ~/.config/k9s/plugins.yaml
+# Custom cluster commands. Available arg vars: $NAME $NAMESPACE $CONTAINER $POD
+# $CONTEXT $CLUSTER $RESOURCE_GROUP $RESOURCE_VERSION $FILTER $COL-<COLUMN>.
+plugins:
+  # Ctrl-L: tail logs with stern across all matching pods (needs `stern` on PATH).
+  stern:
+    shortCut: Ctrl-L
+    description: Stern logs
+    scopes:
+    - po
+    command: stern
+    background: false
+    args:
+    - --tail=50
+    - $NAME
+    - -n
+    - $NAMESPACE
+    - --context
+    - $CONTEXT
+
+  # Shift-E: events scoped to the selected object, paged through less.
+  events:
+    shortCut: Shift-E
+    description: Object events
+    scopes:
+    - all
+    command: sh
+    background: false
+    args:
+    - -c
+    - "kubectl get events --field-selector involvedObject.name=$NAME -n $NAMESPACE --context $CONTEXT | less"
+
+  # Ctrl-J: dump selected resource as YAML into your pager.
+  yaml-view:
+    shortCut: Ctrl-J
+    description: YAML to pager
+    scopes:
+    - all
+    command: sh
+    background: false
+    args:
+    - -c
+    - "kubectl get $RESOURCE_GROUP/$NAME -n $NAMESPACE --context $CONTEXT -o yaml | less"
+
+  # Shift-K: ephemeral debug container on the selected pod (needs k8s >=1.25).
+  debug:
+    shortCut: Shift-K
+    description: Debug container
+    scopes:
+    - po
+    command: kubectl
+    background: false
+    args:
+    - debug
+    - -it
+    - $NAME
+    - -n
+    - $NAMESPACE
+    - --context
+    - $CONTEXT
+    - --image=nicolaka/netshoot
+    - --target=$CONTAINER

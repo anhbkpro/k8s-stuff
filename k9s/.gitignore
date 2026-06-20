@@ -1,0 +1,11 @@
+# Ignore real per-context configs (they contain your actual cluster/context names).
+# Keep the EXAMPLE template and the standard local docker-desktop context tracked.
+clusters/*
+!clusters/EXAMPLE-cluster/
+!clusters/EXAMPLE-cluster/**
+!clusters/docker-desktop/
+!clusters/docker-desktop/**
+
+# k9s runtime junk you don't want committed.
+*.log
+clusters/**/*.log

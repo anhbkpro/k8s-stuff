@@ -1,0 +1,44 @@
+# ~/.config/k9s/config.yaml
+# Global k9s defaults. Per-context overrides (readonly, skin) live under clusters/.
+k9s:
+  # UI poll interval in seconds.
+  refreshRate: 2
+  # Retries after losing the api-server connection.
+  maxConnRetry: 5
+  # Global default. Prod is locked down per-context under clusters/ instead.
+  readOnly: false
+  # Require :quit to exit so Ctrl-C can't drop you out mid-action.
+  noExitOnCtrlC: true
+  # Local bind address for port-forwards.
+  portForwardAddress: localhost
+  # Skip the GitHub latest-release check on startup.
+  skipLatestRevCheck: true
+  ui:
+    enableMouse: false
+    headless: false
+    logoless: false
+    crumbsless: false
+    noIcons: false
+  # Default shell-pod used by 's' on nodes / debug flows.
+  shellPod:
+    image: busybox:1.35.0
+    namespace: default
+    limits:
+      cpu: 100m
+      memory: 100Mi
+    tty: true
+  logger:
+    tail: 200
+    buffer: 5000
+    sinceSeconds: -1     # -1 = tail live
+    fullScreen: false
+    textWrap: false
+    showTime: false
+  # Color alerts when usage crosses these percentages.
+  thresholds:
+    cpu:
+      critical: 90
+      warn: 70
+    memory:
+      critical: 90
+      warn: 70

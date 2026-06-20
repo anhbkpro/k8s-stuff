@@ -1,0 +1,49 @@
+# ~/.config/k9s/skins/staging_green.yaml
+# Calm green skin for non-prod contexts.
+# Reference it from a context config: k9s.skin: staging_green
+k9s:
+  body:
+    fgColor: white
+    bgColor: default
+    logoColor: green
+  prompt:
+    fgColor: white
+    bgColor: default
+    suggestColor: green
+  info:
+    fgColor: green
+    sectionColor: white
+  frame:
+    border:
+      fgColor: green
+      focusColor: lightgreen
+    menu:
+      fgColor: white
+      keyColor: green
+      numKeyColor: green
+    crumbs:
+      fgColor: black
+      bgColor: green
+      activeColor: lightgreen
+    status:
+      newColor: cadetblue
+      modifyColor: green
+      addColor: lightgreen
+      errorColor: red
+      highlightColor: orange
+      killColor: mediumvioletred
+      completedColor: gray
+    title:
+      fgColor: green
+      bgColor: default
+      highlightColor: lightgreen
+      counterColor: white
+      filterColor: orange
+  views:
+    table:
+      fgColor: white
+      bgColor: default
+      header:
+        fgColor: white
+        bgColor: default
+        sorterColor: green

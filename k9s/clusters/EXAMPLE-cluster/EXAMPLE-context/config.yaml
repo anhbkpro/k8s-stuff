@@ -1,0 +1,18 @@
+# TEMPLATE — copy this to clusters/<cluster>/<context>/config.yaml
+# Path must match your real cluster + context names (see `kubectl config get-contexts`).
+# This is how you lock a single context read-only and skin it. Highest-value safety win.
+k9s:
+  cluster: EXAMPLE-cluster
+  readOnly: true            # delete/edit/kill disabled for THIS context only
+  skin: prod_red            # references skins/prod_red.yaml
+  namespace:
+    active: default
+    lockFavorites: false
+    favorites:
+    - all
+    - kube-system
+    - default
+  view:
+    active: dp              # land on deployments when entering this context
+  featureGates:
+    nodeShell: false        # disable node shell on prod

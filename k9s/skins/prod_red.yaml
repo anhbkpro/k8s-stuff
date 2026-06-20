@@ -1,0 +1,49 @@
+# ~/.config/k9s/skins/prod_red.yaml
+# Loud red skin so a prod context is visually unmistakable.
+# Reference it from a context config: k9s.skin: prod_red
+k9s:
+  body:
+    fgColor: white
+    bgColor: default
+    logoColor: red
+  prompt:
+    fgColor: white
+    bgColor: default
+    suggestColor: orangered
+  info:
+    fgColor: orangered
+    sectionColor: white
+  frame:
+    border:
+      fgColor: red
+      focusColor: orangered
+    menu:
+      fgColor: white
+      keyColor: orangered
+      numKeyColor: orangered
+    crumbs:
+      fgColor: white
+      bgColor: red
+      activeColor: orangered
+    status:
+      newColor: cadetblue
+      modifyColor: orangered
+      addColor: green
+      errorColor: red
+      highlightColor: orange
+      killColor: mediumvioletred
+      completedColor: gray
+    title:
+      fgColor: red
+      bgColor: default
+      highlightColor: orangered
+      counterColor: white
+      filterColor: orange
+  views:
+    table:
+      fgColor: white
+      bgColor: default
+      header:
+        fgColor: white
+        bgColor: default
+        sorterColor: orangered

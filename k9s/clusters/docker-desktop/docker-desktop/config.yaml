@@ -1,0 +1,17 @@
+k9s:
+  cluster: docker-desktop
+  readOnly: false
+  skin: staging_green
+  namespace:
+    active: istioinaction
+    lockFavorites: false
+    favorites:
+      - istioinaction
+      - all
+      - default
+      - kube-system
+  view:
+    active: xray deploy
+  featureGates:
+    nodeShell: true
+  proxy: null

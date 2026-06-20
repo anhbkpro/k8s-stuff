@@ -1,0 +1,35 @@
+# hotkeys.yaml
+# NOTE: k9s loads hotkeys from its DATA dir, which on macOS defaults to
+# ~/Library/Application Support/k9s. Setting K9S_CONFIG_DIR=~/.config/k9s
+# makes k9s read this file from ~/.config/k9s too.
+#
+# IMPORTANT: Shift-<letter> combos are reserved by k9s as column sorters
+# (Shift-C=CPU, Shift-M=MEM, Shift-S=status, Shift-I=IP, ...). Binding those
+# without `override: true` makes k9s reject the WHOLE file ("HotKeys load
+# failed!"). Shift-<digit> combos are safe and are what the official docs use.
+# Custom hotkeys appear in the '?' help view and hot-reload on save.
+hotKeys:
+  shift-1:
+    shortCut: Shift-1
+    description: Deployments
+    command: dp
+  shift-2:
+    shortCut: Shift-2
+    description: Services
+    command: svc
+  shift-3:
+    shortCut: Shift-3
+    description: Ingresses
+    command: ing
+  shift-4:
+    shortCut: Shift-4
+    description: ConfigMaps
+    command: cm
+  shift-5:
+    shortCut: Shift-5
+    description: XRay deployments
+    command: xray deploy
+  shift-6:
+    shortCut: Shift-6
+    description: Cluster pulse
+    command: pulse
