@@ -16,6 +16,7 @@ k9s/
 ├── hotkeys.yaml                 # Shift-D/S/I/C/X/P jumps to favorite resources
 ├── clusters/
 │   └── EXAMPLE-cluster/EXAMPLE-context/config.yaml  # per-context readonly+skin template
+├── kubectl_aliases.sh           # your kubectl aliases (source of truth, tracked)
 ├── shellrc.sh                   # sources kubectl aliases + exports K9S_CONFIG_DIR
 ├── install.sh                   # symlinks dir + wires shellrc.sh into ~/.zshrc
 └── .gitignore                   # keeps your real per-context files out of git
@@ -33,7 +34,11 @@ This symlinks the dir to `~/.config/k9s` **and** appends a single line to
 - sources `~/.kubectl_aliases.sh` if present (your kubectl aliases), and
 - exports `K9S_CONFIG_DIR="$HOME/.config/k9s"`.
 
-So a fresh machine gets the aliases + k9s env automatically. Then reload:
+On first run the installer also **migrates** an existing
+`~/.kubectl_aliases.sh` into the repo as `kubectl_aliases.sh` and symlinks
+`~/.kubectl_aliases.sh` back to it — so the aliases become version-controlled
+and travel to new machines. So a fresh machine gets the aliases + k9s env
+automatically. Then reload:
 
 ```bash
 source ~/.zshrc

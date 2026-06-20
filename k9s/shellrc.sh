@@ -2,7 +2,8 @@
 # k9s + kubectl shell setup. Sourced from ~/.zshrc by install.sh.
 # Keep all reusable shell env for k8s tooling here so it travels with the repo.
 
-# kubectl aliases (e.g. kgp, kgpo, kdp ...). Created/maintained separately.
+# kubectl aliases (e.g. kgp, kgpo, kdp ...). The real file is tracked in this
+# repo as kubectl_aliases.sh; install.sh symlinks ~/.kubectl_aliases.sh -> it.
 [ -f "$HOME/.kubectl_aliases.sh" ] && source "$HOME/.kubectl_aliases.sh"
 
 # Point k9s at the version-controlled config dir.

@@ -20,6 +20,25 @@ mkdir -p "$(dirname "$DEST")"
 ln -sfn "$SRC" "$DEST"
 echo "Linked $DEST -> $SRC"
 
+# --- kubectl aliases: repo copy is source of truth ---------------------------
+# On first run, migrate an existing ~/.kubectl_aliases.sh into the repo, then
+# symlink it back so the home path still resolves but is version-controlled.
+ALIAS_SRC="$SRC/kubectl_aliases.sh"
+ALIAS_DEST="$HOME/.kubectl_aliases.sh"
+if [ ! -e "$ALIAS_SRC" ] && [ -f "$ALIAS_DEST" ] && [ ! -L "$ALIAS_DEST" ]; then
+  echo "Migrating $ALIAS_DEST into repo -> $ALIAS_SRC"
+  mv "$ALIAS_DEST" "$ALIAS_SRC"
+fi
+if [ -f "$ALIAS_SRC" ]; then
+  if [ -e "$ALIAS_DEST" ] && [ ! -L "$ALIAS_DEST" ]; then
+    mv "$ALIAS_DEST" "$ALIAS_DEST.backup.$(date +%Y%m%d%H%M%S)"
+  fi
+  ln -sfn "$ALIAS_SRC" "$ALIAS_DEST"
+  echo "Linked $ALIAS_DEST -> $ALIAS_SRC"
+else
+  echo "No kubectl_aliases.sh found yet (repo or home) — skipping."
+fi
+
 # Wire the shell snippet into ~/.zshrc (idempotent). This sources the kubectl
 # aliases and exports K9S_CONFIG_DIR so the setup travels to new machines.
 RC="$HOME/.zshrc"

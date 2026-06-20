@@ -11,7 +11,7 @@ k9s:
       - default
       - kube-system
   view:
-    active: xray deploy
+    active: v1/pods istioinaction
   featureGates:
     nodeShell: true
   proxy: null
