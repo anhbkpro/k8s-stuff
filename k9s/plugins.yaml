@@ -2,16 +2,37 @@
 # Custom cluster commands. Available arg vars: $NAME $NAMESPACE $CONTAINER $POD
 # $CONTEXT $CLUSTER $RESOURCE_GROUP $RESOURCE_VERSION $FILTER $COL-<COLUMN>.
 plugins:
-  # Ctrl-L: tail logs with stern across all matching pods (needs `stern` on PATH).
+  # Ctrl-L: tail app logs with stern, excluding the istio-proxy sidecar.
+  # Adds timestamps for cross-pod correlation. Needs `stern` on PATH.
   stern:
     shortCut: Ctrl-L
-    description: Stern logs
+    description: Stern logs (no sidecar)
     scopes:
     - po
     command: stern
     background: false
     args:
     - --tail=50
+    - --timestamps
+    - --exclude-container
+    - istio-proxy
+    - $NAME
+    - -n
+    - $NAMESPACE
+    - --context
+    - $CONTEXT
+
+  # Shift-L: same as above but includes ALL containers (envoy/istio-proxy too).
+  stern-all:
+    shortCut: Shift-L
+    description: Stern logs (all containers)
+    scopes:
+    - po
+    command: stern
+    background: false
+    args:
+    - --tail=50
+    - --timestamps
     - $NAME
     - -n
     - $NAMESPACE

@@ -9,6 +9,7 @@ reuse across machines.
 |------|------------|
 | [`k9s/`](k9s/README.md) | Version-controlled [k9s](https://k9scli.io) config: global defaults, per-env skins, per-context readonly, hotkeys, plugins, and kubectl aliases. Has its own installer + README. |
 | [`k9s-best-practices.md`](k9s-best-practices.md) | Day-to-day k9s best practices (safety, navigation, debugging, config). |
+| [`stern-guide.md`](stern-guide.md) | stern install (incl. Homebrew tap-trust gotcha) + log-tailing best practices. |
 | [`github-ssh-personal-setup.md`](github-ssh-personal-setup.md) | Ed25519 SSH key setup for GitHub with macOS Keychain. |
 
 ## k9s config — quick start
