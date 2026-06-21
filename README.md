@@ -10,6 +10,7 @@ reuse across machines.
 | [`k9s/`](k9s/README.md) | Version-controlled [k9s](https://k9scli.io) config: global defaults, per-env skins, per-context readonly, hotkeys, plugins, and kubectl aliases. Has its own installer + README. |
 | [`vim/`](vim/README.md) | Self-contained, reproducible vim setup (vim-plug + fzf, NERDTree, ALE, vim-go, and more). Clone, run `./install.sh`, get the same editor on any machine. Has its own installer + README. |
 | [`nvim/`](nvim/README.md) | Reproducible [LazyVim](https://www.lazyvim.org) (Neovim) setup with Go + Terraform/YAML/Docker/Helm extras. Symlinked to `~/.config/nvim`; `lazy-lock.json` pins plugin versions. Has its own installer + README. |
+| [`lazygit/`](lazygit/README.md) | Version-controlled [lazygit](https://github.com/jesseduffield/lazygit) config: git-delta diffs, nvim editor, icons. Symlinked into place; also wired into the nvim installer. Has its own installer + README. |
 | [`k9s-best-practices.md`](k9s-best-practices.md) | Day-to-day k9s best practices (safety, navigation, debugging, config). |
 | [`stern-guide.md`](stern-guide.md) | stern install (incl. Homebrew tap-trust gotcha) + log-tailing best practices. |
 | [`github-ssh-personal-setup.md`](github-ssh-personal-setup.md) | Ed25519 SSH key setup for GitHub with macOS Keychain. |

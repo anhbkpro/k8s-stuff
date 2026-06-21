@@ -1,0 +1,30 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/jesseduffield/lazygit/master/schema/config.json
+#
+# lazygit config — version-controlled, symlinked into place by install.sh.
+# Only non-default settings are listed. Full reference:
+# https://github.com/jesseduffield/lazygit/blob/master/docs/Config.md
+
+gui:
+  nerdFontsVersion: "3"             # show file/branch icons (Nerd Font installed)
+  showDivergenceFromBaseBranch: arrowAndNumber  # ahead/behind at a glance
+  filterMode: fuzzy                 # '/' uses fuzzy matching, not substring
+  # skipDiscardChangeWarning stays false on purpose — keep the safety prompt.
+
+git:
+  # Word-level, syntax-highlighted diffs via git-delta (installed by install.sh).
+  pagers:
+    - colorArg: always
+      pager: delta --dark --paging=never
+  mainBranches: [main, master]      # used for divergence + log coloring
+  parseEmoji: true                  # render :rocket: etc. in commit messages
+  log:
+    order: topo-order               # more readable commit graph
+
+os:
+  editPreset: nvim                  # 'e' opens files in Neovim
+  # If you launch lazygit from inside nvim and install `nvr` (neovim-remote),
+  # this opens files in the parent nvim instead of a nested one:
+  # editPreset: nvim-remote
+
+update:
+  method: background                # check for updates quietly, no prompt

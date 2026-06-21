@@ -94,6 +94,13 @@ else
   warn "nvim not on PATH; skipping headless sync. Open nvim once to install plugins."
 fi
 
+# --- 5. Wire up lazygit (delta pager + nvim editor) -----------------------
+# lazygit is core to the LazyVim workflow (<leader>gg); set it up if present.
+if [ -x "$SCRIPT_DIR/../lazygit/install.sh" ]; then
+  log "Setting up lazygit (git-delta + nvim editor)..."
+  "$SCRIPT_DIR/../lazygit/install.sh" || warn "lazygit setup failed — run lazygit/install.sh manually."
+fi
+
 log "Done."
 echo
 echo "Next steps:"
