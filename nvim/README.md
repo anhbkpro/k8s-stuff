@@ -125,6 +125,62 @@ LazyVim's leader is `<Space>`. The essentials:
 Full list: press `<Space>` and wait for which-key, or see
 <https://www.lazyvim.org/keymaps>.
 
+## Daily-driver cheatsheet (built-in plugins)
+
+The habit, then the keys, for the plugins LazyVim ships. The meta-rule: **picker +
+flash to move, treesitter text objects to edit, trouble to triage, which-key when
+you forget.**
+
+### Snacks picker — your main navigation
+
+Type a few fuzzy chars instead of browsing. Lowercase keys scope to the git root.
+
+- `<leader><space>` files · `<leader>/` live grep · `<leader>,` buffers · `<leader>:` command history
+- `<leader>sg` grep · `<leader>sw` grep word under cursor · `<leader>ss` symbols · `<leader>sk` keymaps · `<leader>sd` diagnostics
+- In a picker: `<c-s>`/`<c-v>` split/vsplit · `<Tab>` multi-select · `<c-q>` send to quickfix (then edit in bulk)
+
+### gitsigns — inline git (pair with lazygit)
+- `]h` / `[h` next/prev hunk · `]H` / `[H` last/first
+- `<leader>ghs` stage hunk · `<leader>ghr` reset hunk · `<leader>ghp` preview · `<leader>ghb` blame line · `<leader>ghd` diff this
+- `ih` = hunk text object (`dih` wipes a hunk; stage a visual `ih`)
+- Quick fixes here; real commits in lazygit (`<leader>gg`).
+
+### flash — motion
+- `s` jump (n/x/o) · `S` jump to a treesitter node · `r` remote (operate at a distance) · `<c-s>` toggle during `/`
+- `<c-space>` treesitter incremental select (expand), `<bs>` shrink
+- Make `s` your default mid-range motion instead of repeated `w`/`f`.
+
+### treesitter — structural editing
+Don't hand-install parsers (extras + `infra.lua` drive it); just `:TSUpdate`.
+
+- Text objects: `af`/`if` function · `ac`/`ic` class · `aa`/`ia` parameter → `cif`, `vac`, `daa`
+- Move: `]f`/`[f` function · `]c`/`[c` class · `]a`/`[a` parameter
+- Operate on semantic units, not line counts.
+
+### mason — tool installer
+- `:Mason` browse · `U` update a tool · `:MasonUpdate` registry
+- Declare servers via lang extras (reproducible), not the UI. Treat `:Mason` as inspect-only.
+
+### conform — formatting (on save by default)
+- `<leader>cf` format · `<leader>uf` toggle autoformat (buffer) · `<leader>uF` (global)
+- Leave it on; toggle per-buffer when you don't want to fight a repo's CI style.
+
+### which-key — discovery
+- Press `<leader>` and pause. `<leader>?` shows buffer-local keymaps. `<c-w><space>` window hydra.
+- Always add `desc` to your own maps + a group label for new prefixes (e.g. your `<leader>k`).
+
+### todo-comments
+- `]t` / `[t` jump · `<leader>st` all todos · `<leader>sT` TODO/FIX/FIXME · `<leader>xt` in Trouble
+- Sweep `<leader>st` before opening a PR.
+
+### trouble — diagnostics/list UI
+- `<leader>xx` all diagnostics · `<leader>xX` buffer · `<leader>cs` symbol outline · `<leader>cS` LSP refs/defs · `<leader>xQ` quickfix
+- `]q` / `[q` step through items from anywhere. Triage project errors here, not one-by-one.
+
+### grug-far — search & replace
+- `<leader>sr` open (prefilled with current file ext; visual mode seeds the search). ripgrep + live preview, then sync.
+- Use it for strings/manifests; for code symbols use LSP rename (`<leader>cr`) instead — it's semantic.
+
 ## Reproducibility
 
 `lazy-lock.json` pins the exact commit of every plugin. **Commit it** after the
