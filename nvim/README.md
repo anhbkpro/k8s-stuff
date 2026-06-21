@@ -71,8 +71,38 @@ import list and restart to add or drop a language stack.
 | `lang.docker` | dockerfile-language-server, hadolint |
 | `lang.helm` | helm-ls for Helm chart templates |
 | `dap.core` | nvim-dap + UI (wires up Go debugging) |
+| `ai.copilot` | GitHub Copilot inline completion (ghost text) |
 
 `lua_ls` + `lazydev` for editing this config come with LazyVim by default.
+
+## AI assistants
+
+Two layers, two tools — kept on separate keys so they don't clash:
+
+- **Inline completion** → **Copilot** (`ai.copilot` extra). Ghost text as you
+  type; accept/cycle with `<M-]>` / `<M-[>`. Run `:Copilot auth` once.
+- **Agentic chat / edits** → **Claude Code** via
+  [`claudecode.nvim`](lua/plugins/claude.lua), which connects nvim to the Claude
+  Code CLI (same MCP protocol as the official VS Code extension). Owns
+  `<leader>a`. The CLI is installed by `install.sh`
+  (`npm i -g @anthropic-ai/claude-code`); authenticate on first `:ClaudeCode`.
+
+| Key | Claude Code |
+|-----|-------------|
+| `<leader>ac` / `<leader>af` | Toggle / focus Claude |
+| `<leader>as` (visual) | Send selection as context |
+| `<leader>ab` | Add current buffer to context |
+| `<leader>ar` / `<leader>aC` | Resume / continue session |
+| `<leader>aa` / `<leader>ad` | Accept / reject a proposed diff (or `:w` / `:q`) |
+
+Don't also enable `ai.copilot-chat` or `ai.sidekick` — all three fight over the
+`<leader>a` prefix.
+
+**Best practices:** review every proposed diff before `:w`; never send secrets
+as context (k8s Secrets, `*.tfvars`, `.env`) — set Copilot content exclusions in
+your GitHub org; use Copilot for boilerplate and Claude for multi-file
+refactors/reasoning; and always validate AI-generated manifests
+(`<leader>kn` istioctl analyze, `kubectl apply --dry-run=server`) before applying.
 
 ## Day-to-day keys
 

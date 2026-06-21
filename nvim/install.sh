@@ -52,6 +52,19 @@ fi
 command -v go >/dev/null 2>&1 || \
   warn "Go not found on PATH — install it (brew install go) for gopls + debugging."
 
+# --- 1a. Claude Code CLI (for claudecode.nvim) ----------------------------
+# lua/plugins/claude.lua integrates the Claude Code CLI. Install it if missing.
+if command -v claude >/dev/null 2>&1; then
+  log "Claude Code CLI already installed ($(command -v claude))."
+elif command -v npm >/dev/null 2>&1; then
+  log "Installing Claude Code CLI via npm..."
+  npm install -g @anthropic-ai/claude-code || \
+    warn "Claude Code install failed — see https://docs.anthropic.com/en/docs/claude-code"
+else
+  warn "npm not found — install Claude Code manually for claudecode.nvim:"
+  warn "  curl -fsSL claude.ai/install.sh | bash"
+fi
+
 # --- 1b. Arch sanity check ------------------------------------------------
 # Fail loudly if nvim's arch doesn't match the CPU — parsers won't load otherwise.
 if command -v nvim >/dev/null 2>&1 && [ "$(uname -m)" = "arm64" ]; then

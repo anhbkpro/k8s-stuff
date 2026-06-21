@@ -29,6 +29,12 @@ require("lazy").setup({
     -- Debugging (delve for Go comes from the go extra above; this wires nvim-dap).
     { import = "lazyvim.plugins.extras.dap.core" },
 
+    -- AI: Copilot inline completion (ghost text). Accept with <M-]>/<M-[>.
+    -- Claude (agentic chat/edits) is added via lua/plugins/claude.lua.
+    -- NOTE: do NOT also enable ai.copilot-chat or ai.sidekick — they fight
+    -- claudecode.nvim over the <leader>a prefix.
+    { import = "lazyvim.plugins.extras.ai.copilot" },
+
     -- import/override with your plugins
     { import = "plugins" },
   },
