@@ -1,0 +1,78 @@
+" ~/.vimrc.bundles — plugin manifest (managed by vim-plug)
+" Sourced near the top of ~/.vimrc. Edit the list, then run :PlugInstall.
+" Pin exact versions with :PlugSnapshot vim/plug.snapshot.vim (see README).
+
+if &compatible
+  set nocompatible
+endif
+
+" Bootstrap vim-plug automatically on a fresh machine (fallback; install.sh
+" normally handles this).
+let s:plug_path = expand('~/.vim/autoload/plug.vim')
+if empty(glob(s:plug_path))
+  silent execute '!curl -fLo ' . s:plug_path . ' --create-dirs '
+        \ . 'https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+" Helper to drop a declared plugin (thoughtbot convention).
+function! s:UnPlug(plug_name)
+  if has_key(g:plugs, a:plug_name)
+    call remove(g:plugs, a:plug_name)
+  endif
+endfunction
+command! -nargs=1 UnPlug call s:UnPlug(<args>)
+
+" ALE + vim-test require async (Vim 8+ or NeoVim). ~/.vimrc reads this.
+let g:has_async = has('job') && has('channel')
+
+call plug#begin('~/.vim/bundle')
+
+" ---- Fuzzy finding -------------------------------------------------------
+" Base fzf installs/updates the fzf binary via the post-update hook.
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+
+" ---- File explorer -------------------------------------------------------
+Plug 'preservim/nerdtree'
+
+" ---- Linting / fixing ----------------------------------------------------
+Plug 'dense-analysis/ale'
+
+" ---- Editing / motions ---------------------------------------------------
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-eunuch'
+Plug 'tpope/vim-projectionist'
+Plug 'vim-scripts/tComment'
+Plug 'pbrisbin/vim-mkdir'
+
+" ---- Git -----------------------------------------------------------------
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rhubarb'
+
+" ---- Testing / running ---------------------------------------------------
+Plug 'janko-m/vim-test'
+Plug 'christoomey/vim-run-interactive'
+
+" ---- Languages -----------------------------------------------------------
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'pangloss/vim-javascript'
+Plug 'elixir-lang/vim-elixir'
+Plug 'vim-ruby/vim-ruby'
+Plug 'tpope/vim-rails'
+Plug 'tpope/vim-rake'
+Plug 'tpope/vim-bundler'
+Plug 'slim-template/vim-slim'
+
+" ---- AI assist -----------------------------------------------------------
+" Run :Copilot setup once after install to authenticate.
+Plug 'github/copilot.vim'
+
+" Machine-local plugin additions (untracked).
+if filereadable(expand('~/.vimrc.bundles.local'))
+  source ~/.vimrc.bundles.local
+endif
+
+call plug#end()

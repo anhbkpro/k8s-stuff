@@ -1,0 +1,12 @@
+tt.*
+.tests
+doc/tags
+debug
+.repro
+foo.*
+*.log
+data
+
+# LazyVim writes this to track enabled extras + read "news" state. We manage
+# extras in lua/config/lazy.lua instead, so keep this machine-local.
+lazyvim.json
