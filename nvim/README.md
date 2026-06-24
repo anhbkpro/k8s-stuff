@@ -224,4 +224,28 @@ symlink and move the backup back.
   `brew reinstall tree-sitter`. Never `brew uninstall tree-sitter`.
 - **Treesitter parser build errors** — ensure the `tree-sitter` CLI is on PATH
   and matches the lib (`brew install tree-sitter`), then `:TSUpdate`.
+- **`No parser for language "X"`** — that parser just isn't built yet. Run
+  `:TSInstall X` (e.g. `:TSInstall gomod gosum gowork`) or `:TSUpdate` to build
+  everything your config declares.
+- **Dozens of treesitter "errors detected in query files" (`:checkhealth` shows
+  many ❌, parsers like `go`/`terraform` marked `x`)** — stale/mismatched query
+  files in `~/.local/share/nvim/site/queries/` left over from an earlier broken
+  install. The built-in parsers (bash, lua, json…) still work, but everything
+  nvim-treesitter installed is broken. Clean and rebuild — quit nvim, then:
+
+  ```bash
+  rm -rf ~/.local/share/nvim/site/parser ~/.local/share/nvim/site/queries
+  ```
+
+  Reopen nvim and run `:Lazy update` then `:TSUpdate`. If errors survive, also
+  remove the plugin clones and resync:
+
+  ```bash
+  rm -rf ~/.local/share/nvim/site/parser ~/.local/share/nvim/site/queries \
+         ~/.local/share/nvim/lazy/nvim-treesitter \
+         ~/.local/share/nvim/lazy/nvim-treesitter-textobjects
+  ```
+
+  then in nvim: `:Lazy sync` → `:TSUpdate`. Do **not** pin nvim-treesitter to the
+  `master` branch to "fix" this — LazyVim uses the `main`-branch API and would break.
 - **`:checkhealth`** — the go-to for diagnosing anything.
