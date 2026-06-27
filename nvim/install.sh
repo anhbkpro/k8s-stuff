@@ -38,8 +38,13 @@ if [ -n "$BREW" ]; then
   # `tree-sitter` provides BOTH libtree-sitter.dylib (neovim links against it —
   # do NOT remove it) and the tree-sitter CLI that nvim-treesitter uses to build
   # parsers. Keeping it from one brew guarantees lib + CLI share an arch.
-  "$BREW" install neovim ripgrep fd fzf lazygit node tree-sitter || \
+  # `watch` is used by istio-tmux's pod-watch pane (not a default macOS command).
+  "$BREW" install neovim ripgrep fd fzf lazygit node tree-sitter watch || \
     warn "One or more brew installs failed — continuing."
+  # jwt-cli (binary: `jwt`) — decode/encode JWTs; handy for Istio auth debugging.
+  log "Installing jwt-cli..."
+  "$BREW" install mike-engel/jwt-cli/jwt-cli || \
+    warn "jwt-cli install failed — see https://github.com/mike-engel/jwt-cli"
   log "Installing a Nerd Font (icons)..."
   "$BREW" install --cask font-jetbrains-mono-nerd-font || \
     warn "Nerd Font install failed — set your terminal font manually if icons look off."
@@ -105,6 +110,22 @@ if command -v nvim >/dev/null 2>&1; then
   nvim --headless "+TSUpdate" +qa 2>&1 | tail -n 5 || true
 else
   warn "nvim not on PATH; skipping headless sync. Open nvim once to install plugins."
+fi
+
+# --- 4b. Install istio-tmux launcher on PATH ------------------------------
+# Symlink ../istio-tmux.sh to ~/.local/bin/istio-tmux so it runs from any new
+# terminal (defaults: project-dir = $PWD, namespace = istioinaction).
+ISTIO_TMUX="$SCRIPT_DIR/../istio-tmux.sh"
+if [ -f "$ISTIO_TMUX" ]; then
+  chmod +x "$ISTIO_TMUX"
+  mkdir -p "$HOME/.local/bin"
+  ln -sfn "$ISTIO_TMUX" "$HOME/.local/bin/istio-tmux"
+  log "Linked ~/.local/bin/istio-tmux -> $ISTIO_TMUX"
+  case ":$PATH:" in
+    *":$HOME/.local/bin:"*) ;;
+    *) warn "~/.local/bin is not on PATH. Add to your shell rc:"
+       warn "  export PATH=\"\$HOME/.local/bin:\$PATH\"" ;;
+  esac
 fi
 
 # --- 5. Wire up lazygit (delta pager + nvim editor) -----------------------
