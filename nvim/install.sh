@@ -81,6 +81,39 @@ if command -v nvim >/dev/null 2>&1 && [ "$(uname -m)" = "arm64" ]; then
   fi
 fi
 
+# --- 1c. kubectl plugins (krew + view-secret) -----------------------------
+# view-secret decodes Secret values without the base64 dance. It's a krew
+# plugin, so install the krew plugin manager first. All steps are idempotent.
+KREW_BIN="${KREW_ROOT:-$HOME/.krew}/bin"
+if command -v kubectl >/dev/null 2>&1; then
+  if [ -n "$BREW" ] && ! command -v kubectl-krew >/dev/null 2>&1 && [ ! -x "$KREW_BIN/kubectl-krew" ]; then
+    log "Installing krew (kubectl plugin manager)..."
+    "$BREW" install krew || warn "krew install failed — see https://krew.sigs.k8s.io/docs/user-guide/setup/install/"
+  fi
+  # Put krew on PATH for this run so `kubectl krew` resolves.
+  case ":$PATH:" in *":$KREW_BIN:"*) ;; *) export PATH="$KREW_BIN:$PATH" ;; esac
+  if command -v kubectl-krew >/dev/null 2>&1; then
+    log "Installing/updating kubectl plugins (view-secret, whoami)..."
+    # view-secret: decode Secret values. whoami: show the identity behind a
+    # token/kubeconfig (kubectl auth whoami is built-in on 1.26+, this plugin
+    # works on older clusters too).
+    for plugin in view-secret whoami; do
+      kubectl krew install "$plugin" 2>&1 | tail -n 2 || \
+        warn "$plugin install failed — run: kubectl krew install $plugin"
+    done
+    case ":$PATH:" in
+      *":$KREW_BIN:"*) ;;
+      *) warn "krew bin not on PATH. Add to your shell rc:"
+         warn "  export PATH=\"\${KREW_ROOT:-\$HOME/.krew}/bin:\$PATH\"" ;;
+    esac
+  else
+    warn "krew not available — skipping view-secret. Install manually:"
+    warn "  brew install krew && kubectl krew install view-secret"
+  fi
+else
+  warn "kubectl not on PATH — skipping krew/view-secret setup."
+fi
+
 # --- 2. Back up existing Neovim dirs --------------------------------------
 # Move real config + state aside so LazyVim starts from a clean slate.
 backup() {
