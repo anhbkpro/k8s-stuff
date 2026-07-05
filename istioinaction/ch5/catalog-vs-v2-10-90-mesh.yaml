@@ -1,0 +1,19 @@
+apiVersion: networking.istio.io/v1
+kind: VirtualService
+metadata:
+  name: catalog
+spec:
+  hosts:
+    - catalog
+  gateways:
+    - mesh
+  http:
+    - route:
+        - destination:
+            host: catalog
+            subset: v1
+          weight: 90
+        - destination:
+            host: catalog
+            subset: v2
+          weight: 10
