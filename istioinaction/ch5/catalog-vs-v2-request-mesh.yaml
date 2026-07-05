@@ -1,0 +1,22 @@
+apiVersion: networking.istio.io/v1
+kind: VirtualService
+metadata:
+  name: catalog
+spec:
+  hosts:
+    - catalog
+  gateways:
+    - mesh
+  http:
+    - match:
+        - headers:
+            x-istio-cohort:
+              exact: "internal"
+      route:
+        - destination:
+            host: catalog
+            subset: v2
+    - route:
+        - destination:
+            host: catalog
+            subset: v1
