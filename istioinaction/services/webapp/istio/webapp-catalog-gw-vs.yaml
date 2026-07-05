@@ -1,0 +1,31 @@
+---
+apiVersion: networking.istio.io/v1
+kind: Gateway
+metadata:
+  name: coolstore-gateway
+spec:
+  selector:
+    istio: ingressgateway
+  servers:
+    - hosts:
+        - "webapp.istioinaction.io"
+      port:
+        name: http
+        number: 80
+        protocol: HTTP
+---
+apiVersion: networking.istio.io/v1
+kind: VirtualService
+metadata:
+  name: webapp-virtualservice
+spec:
+  hosts:
+    - "webapp.istioinaction.io"
+  gateways:
+    - coolstore-gateway
+  http:
+    - route:
+        - destination:
+            host: webapp
+            port:
+              number: 80
