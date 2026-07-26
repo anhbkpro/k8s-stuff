@@ -130,6 +130,12 @@ inoremap <S-Tab> <C-n>
 " Switch between the last two files
 nnoremap <Leader><Leader> <C-^>
 
+" Copy the current file's path to the system clipboard
+" %:p = absolute, %:. = relative to cwd, %:t = filename only
+nnoremap <silent> <Leader>cp :let @+ = expand('%:p') \| echo 'Copied ' . @+<CR>
+nnoremap <silent> <Leader>cr :let @+ = expand('%:.') \| echo 'Copied ' . @+<CR>
+nnoremap <silent> <Leader>cn :let @+ = expand('%:t') \| echo 'Copied ' . @+<CR>
+
 " Get off my lawn
 nnoremap <Left> :echoe "Use h"<CR>
 nnoremap <Right> :echoe "Use l"<CR>

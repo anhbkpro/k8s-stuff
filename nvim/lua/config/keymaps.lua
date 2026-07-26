@@ -22,3 +22,22 @@ map("n", "<leader>kN", ":!istioctl analyze<CR>",           { desc = "istioctl an
 -- quick status checks (block until you press enter)
 map("n", "<leader>kp", ":!kubectl get pods -o wide<CR>",   { desc = "get pods" })
 map("n", "<leader>ks", ":!kubectl get svc,gateway,virtualservice,destinationrule<CR>", { desc = "get istio resources" })
+
+-- yank the current file's path into the system clipboard (+ register)
+map("n", "<leader>yp", function()
+  local path = vim.fn.expand("%:p")
+  vim.fn.setreg("+", path)
+  vim.notify("Copied: " .. path)
+end, { desc = "yank absolute file path" })
+
+map("n", "<leader>yr", function()
+  local path = vim.fn.fnamemodify(vim.fn.expand("%:p"), ":.")
+  vim.fn.setreg("+", path)
+  vim.notify("Copied: " .. path)
+end, { desc = "yank relative file path" })
+
+map("n", "<leader>yn", function()
+  local name = vim.fn.expand("%:t")
+  vim.fn.setreg("+", name)
+  vim.notify("Copied: " .. name)
+end, { desc = "yank file name only" })
