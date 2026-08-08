@@ -11,6 +11,7 @@ reuse across machines.
 | [`vim/`](vim/README.md) | Self-contained, reproducible vim setup (vim-plug + fzf, NERDTree, ALE, vim-go, and more). Clone, run `./install.sh`, get the same editor on any machine. Has its own installer + README. |
 | [`nvim/`](nvim/README.md) | Reproducible [LazyVim](https://www.lazyvim.org) (Neovim) setup with Go + Terraform/YAML/Docker/Helm extras. Symlinked to `~/.config/nvim`; `lazy-lock.json` pins plugin versions. Has its own installer + README. |
 | [`lazygit/`](lazygit/README.md) | Version-controlled [lazygit](https://github.com/jesseduffield/lazygit) config: git-delta diffs, nvim editor, icons. Symlinked into place; also wired into the nvim installer. Has its own installer + README. |
+| [`practicalvim/`](practicalvim/README.md) | Learning log for *Practical Vim* (Drew Neil): one Markdown write-up per tip in `tips/`, a matching `practice/` file per tip (from the book's sample code) to drill on, and a README index tracking progress across all 121 tips. |
 | [`istio-tmux.sh`](istio-tmux.sh) | One-shot tmux layout for Istio practice: nvim (left), a kubectl/istioctl shell (top-right), and a live pod watch (bottom-right). Installed on PATH as `istio-tmux` by the nvim installer. See [`tmux-guide.md`](tmux-guide.md). |
 | [`tmux-guide.md`](tmux-guide.md) | tmux lifecycle (detach vs. kill), navigation, copy mode, and best practices for the istio-tmux layout. |
 | [`k9s-best-practices.md`](k9s-best-practices.md) | Day-to-day k9s best practices (safety, navigation, debugging, config). |
