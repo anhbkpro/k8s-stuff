@@ -2,7 +2,7 @@
 
 Working through *Practical Vim: Edit Text at the Speed of Thought* (Drew Neil), one or a few tips at a time. Each tip gets its own file in [`tips/`](./tips/). This README is the index and progress tracker.
 
-**Progress:** 13 / 121 tips documented. ✅ Chapters 1–2 complete.
+**Progress:** 14 / 121 tips documented. ✅ Chapters 1–2 complete.
 
 ## How I use this
 
@@ -41,7 +41,7 @@ Legend: `[x]` done · `[ ]` not yet.
 ### Chapter 3 — Insert Mode
 
 - [x] Tip 13 — [Make Corrections Instantly from Insert Mode](./tips/tip-13-make-corrections-instantly-from-insert-mode.md)
-- [ ] Tip 14 — Get Back to Normal Mode
+- [x] Tip 14 — [Get Back to Normal Mode](./tips/tip-14-get-back-to-normal-mode.md)
 - [ ] Tip 15 — Paste from a Register Without Leaving Insert Mode
 - [ ] Tip 16 — Do Back-of-the-Envelope Calculations in Place
 - [ ] Tip 17 — Insert Unusual Characters by Character Code
