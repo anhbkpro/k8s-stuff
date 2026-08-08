@@ -2,7 +2,7 @@
 
 Working through *Practical Vim: Edit Text at the Speed of Thought* (Drew Neil), one or a few tips at a time. Each tip gets its own file in [`tips/`](./tips/). This README is the index and progress tracker.
 
-**Progress:** 1 / 121 tips documented.
+**Progress:** 2 / 121 tips documented.
 
 ## How I use this
 
@@ -21,7 +21,7 @@ Legend: `[x]` done · `[ ]` not yet.
 ## Chapter 1 — The Vim Way
 
 - [x] Tip 1 — [Meet the Dot Command](./tips/tip-01-meet-the-dot-command.md)
-- [ ] Tip 2 — Don't Repeat Yourself
+- [x] Tip 2 — [Don't Repeat Yourself](./tips/tip-02-dont-repeat-yourself.md)
 - [ ] Tip 3 — Take One Step Back, Then Three Forward
 - [ ] Tip 4 — Act, Repeat, Reverse
 - [ ] Tip 5 — Find and Replace by Hand
