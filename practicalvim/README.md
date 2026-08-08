@@ -2,7 +2,7 @@
 
 Working through *Practical Vim: Edit Text at the Speed of Thought* (Drew Neil), one or a few tips at a time. Each tip gets its own file in [`tips/`](./tips/). This README is the index and progress tracker.
 
-**Progress:** 6 / 121 tips documented. ✅ Chapter 1 complete.
+**Progress:** 7 / 121 tips documented. ✅ Chapter 1 complete.
 
 ## How I use this
 
@@ -31,7 +31,7 @@ Legend: `[x]` done · `[ ]` not yet.
 
 ### Chapter 2 — Normal Mode
 
-- [ ] Tip 7 — Pause with Your Brush Off the Page
+- [x] Tip 7 — [Pause with Your Brush Off the Page](./tips/tip-07-pause-with-your-brush-off-the-page.md)
 - [ ] Tip 8 — Chunk Your Undos
 - [ ] Tip 9 — Compose Repeatable Changes
 - [ ] Tip 10 — Use Counts to Do Simple Arithmetic
