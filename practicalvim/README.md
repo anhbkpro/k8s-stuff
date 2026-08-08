@@ -2,7 +2,7 @@
 
 Working through *Practical Vim: Edit Text at the Speed of Thought* (Drew Neil), one or a few tips at a time. Each tip gets its own file in [`tips/`](./tips/). This README is the index and progress tracker.
 
-**Progress:** 11 / 121 tips documented. ✅ Chapter 1 complete.
+**Progress:** 12 / 121 tips documented. ✅ Chapters 1–2 complete.
 
 ## How I use this
 
@@ -36,7 +36,7 @@ Legend: `[x]` done · `[ ]` not yet.
 - [x] Tip 9 — [Compose Repeatable Changes](./tips/tip-09-compose-repeatable-changes.md)
 - [x] Tip 10 — [Use Counts to Do Simple Arithmetic](./tips/tip-10-use-counts-to-do-simple-arithmetic.md)
 - [x] Tip 11 — [Don't Count If You Can Repeat](./tips/tip-11-dont-count-if-you-can-repeat.md)
-- [ ] Tip 12 — Combine and Conquer
+- [x] Tip 12 — [Combine and Conquer](./tips/tip-12-combine-and-conquer.md)
 
 ### Chapter 3 — Insert Mode
 
