@@ -2,7 +2,7 @@
 
 Working through *Practical Vim: Edit Text at the Speed of Thought* (Drew Neil), one or a few tips at a time. Each tip gets its own file in [`tips/`](./tips/). This README is the index and progress tracker.
 
-**Progress:** 21 / 121 tips documented. ✅ Chapters 1–3 complete.
+**Progress:** 22 / 121 tips documented. ✅ Chapters 1–3 complete.
 
 ## How I use this
 
@@ -52,7 +52,7 @@ Legend: `[x]` done · `[ ]` not yet.
 
 - [x] Tip 20 — [Grok Visual Mode](./tips/tip-20-grok-visual-mode.md)
 - [x] Tip 21 — [Define a Visual Selection](./tips/tip-21-define-a-visual-selection.md)
-- [ ] Tip 22 — Repeat Line-Wise Visual Commands
+- [x] Tip 22 — [Repeat Line-Wise Visual Commands](./tips/tip-22-repeat-line-wise-visual-commands.md)
 - [ ] Tip 23 — Prefer Operators to Visual Commands Where Possible
 - [ ] Tip 24 — Edit Tabular Data with Visual-Block Mode
 - [ ] Tip 25 — Change Columns of Text
