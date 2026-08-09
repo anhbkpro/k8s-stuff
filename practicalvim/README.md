@@ -2,7 +2,7 @@
 
 Working through *Practical Vim: Edit Text at the Speed of Thought* (Drew Neil), one or a few tips at a time. Each tip gets its own file in [`tips/`](./tips/). This README is the index and progress tracker.
 
-**Progress:** 18 / 121 tips documented. ✅ Chapters 1–2 complete.
+**Progress:** 19 / 121 tips documented. ✅ Chapters 1–3 complete.
 
 ## How I use this
 
@@ -46,7 +46,7 @@ Legend: `[x]` done · `[ ]` not yet.
 - [x] Tip 16 — [Do Back-of-the-Envelope Calculations in Place](./tips/tip-16-back-of-the-envelope-calculations.md)
 - [x] Tip 17 — [Insert Unusual Characters by Character Code](./tips/tip-17-insert-unusual-characters-by-character-code.md)
 - [x] Tip 18 — [Insert Unusual Characters by Digraph](./tips/tip-18-insert-unusual-characters-by-digraph.md)
-- [ ] Tip 19 — Overwrite Existing Text with Replace Mode
+- [x] Tip 19 — [Overwrite Existing Text with Replace Mode](./tips/tip-19-overwrite-with-replace-mode.md)
 
 ### Chapter 4 — Visual Mode
 
