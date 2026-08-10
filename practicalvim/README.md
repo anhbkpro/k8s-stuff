@@ -2,7 +2,7 @@
 
 Working through *Practical Vim: Edit Text at the Speed of Thought* (Drew Neil), one or a few tips at a time. Each tip gets its own file in [`tips/`](./tips/). This README is the index and progress tracker.
 
-**Progress:** 29 / 121 tips documented. ✅ Chapters 1–4 complete.
+**Progress:** 30 / 121 tips documented. ✅ Chapters 1–4 complete.
 
 ## How I use this
 
@@ -63,7 +63,7 @@ Legend: `[x]` done · `[ ]` not yet.
 - [x] Tip 27 — [Meet Vim's Command Line](./tips/tip-27-meet-vims-command-line.md)
 - [x] Tip 28 — [Execute a Command on One or More Consecutive Lines](./tips/tip-28-execute-command-on-consecutive-lines.md)
 - [x] Tip 29 — [Duplicate or Move Lines Using `:t` and `:m` Commands](./tips/tip-29-duplicate-or-move-lines.md)
-- [ ] Tip 30 — Run Normal Mode Commands Across a Range
+- [x] Tip 30 — [Run Normal Mode Commands Across a Range](./tips/tip-30-run-normal-commands-across-a-range.md)
 - [ ] Tip 31 — Repeat the Last Ex Command
 - [ ] Tip 32 — Tab-Complete Your Ex Commands
 - [ ] Tip 33 — Insert the Current Word at the Command Prompt
