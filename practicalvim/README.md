@@ -2,7 +2,7 @@
 
 Working through *Practical Vim: Edit Text at the Speed of Thought* (Drew Neil), one or a few tips at a time. Each tip gets its own file in [`tips/`](./tips/). This README is the index and progress tracker.
 
-**Progress:** 33 / 121 tips documented. ✅ Chapters 1–4 complete.
+**Progress:** 34 / 121 tips documented. ✅ Chapters 1–4 complete.
 
 ## How I use this
 
@@ -67,7 +67,7 @@ Legend: `[x]` done · `[ ]` not yet.
 - [x] Tip 31 — [Repeat the Last Ex Command](./tips/tip-31-repeat-the-last-ex-command.md)
 - [x] Tip 32 — [Tab-Complete Your Ex Commands](./tips/tip-32-tab-complete-your-ex-commands.md)
 - [x] Tip 33 — [Insert the Current Word at the Command Prompt](./tips/tip-33-insert-current-word-at-command-prompt.md)
-- [ ] Tip 34 — Recall Commands from History
+- [x] Tip 34 — [Recall Commands from History](./tips/tip-34-recall-commands-from-history.md)
 - [ ] Tip 35 — Run Commands in the Shell
 
 ## Part II — Files
