@@ -23,6 +23,12 @@ map("n", "<leader>kN", ":!istioctl analyze<CR>",           { desc = "istioctl an
 map("n", "<leader>kp", ":!kubectl get pods -o wide<CR>",   { desc = "get pods" })
 map("n", "<leader>ks", ":!kubectl get svc,gateway,virtualservice,destinationrule<CR>", { desc = "get istio resources" })
 
+-- Buffer-list traversal (Practical Vim, Tip 36 / unimpaired.vim style).
+-- LazyVim already maps [b/]b and <S-h>/<S-l> to :bprevious/:bnext, so only
+-- the first/last jumps are added here.
+map("n", "[B", "<cmd>bfirst<CR>", { desc = "First buffer" })
+map("n", "]B", "<cmd>blast<CR>",  { desc = "Last buffer" })
+
 -- yank the current file's path into the system clipboard (+ register)
 map("n", "<leader>yp", function()
   local path = vim.fn.expand("%:p")
