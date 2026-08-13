@@ -2,7 +2,7 @@
 
 Working through *Practical Vim: Edit Text at the Speed of Thought* (Drew Neil), one or a few tips at a time. Each tip gets its own file in [`tips/`](./tips/). This README is the index and progress tracker.
 
-**Progress:** 35 / 121 tips documented. ✅ Chapters 1–5 complete.
+**Progress:** 36 / 121 tips documented. ✅ Chapters 1–5 complete.
 
 ## How I use this
 
@@ -74,7 +74,7 @@ Legend: `[x]` done · `[ ]` not yet.
 
 ### Chapter 6 — Manage Multiple Files
 
-- [ ] Tip 36 — Track Open Files with the Buffer List
+- [x] Tip 36 — [Track Open Files with the Buffer List](./tips/tip-36-track-open-files-with-buffer-list.md)
 - [ ] Tip 37 — Group Buffers into a Collection with the Argument List
 - [ ] Tip 38 — Manage Hidden Files
 - [ ] Tip 39 — Divide Your Workspace into Split Windows
