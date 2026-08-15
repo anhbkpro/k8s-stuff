@@ -1,0 +1,23 @@
+# Ansible for DevOps — Practice Log
+
+Working through *Ansible for DevOps* (Jeff Geerling), one chapter at a time.
+Each chapter gets its own `chNN/` folder with the actual playbooks,
+inventories, and roles built while following along — not just notes.
+
+## How I use this
+
+- Read a chapter, build its playbook/inventory/roles in `chNN/`.
+- Run it for real (Vagrant, Docker, or a local VM) and capture any
+  gotchas in `chNN/README.md` — command sequences, errors hit, fixes.
+- If something's reusable across chapters (a role, a base inventory),
+  pull it up to a shared spot once a second chapter needs it — don't
+  pre-build shared structure before it's needed.
+- Update the progress list below as chapters are completed.
+
+## Progress
+
+- [ ] Ch 01 — _(fill in title as you start)_
+
+---
+
+Sourced from *Ansible for DevOps* in `technical-books/devops/`.
