@@ -2,7 +2,7 @@
 
 Working through *Practical Vim: Edit Text at the Speed of Thought* (Drew Neil), one or a few tips at a time. Each tip gets its own file in [`tips/`](./tips/). This README is the index and progress tracker.
 
-**Progress:** 46 / 121 tips documented. ✅ Chapters 1–7 complete.
+**Progress:** 47 / 121 tips documented. ✅ Chapters 1–7 complete.
 
 ## How I use this
 
@@ -93,7 +93,7 @@ Legend: `[x]` done · `[ ]` not yet.
 ### Chapter 8 — Navigate Inside Files with Motions
 
 - [x] Tip 46 — [Keep Your Fingers on the Home Row](./tips/tip-46-keep-your-fingers-on-the-home-row.md)
-- [ ] Tip 47 — Distinguish Between Real Lines and Display Lines
+- [x] Tip 47 — [Distinguish Between Real Lines and Display Lines](./tips/tip-47-real-lines-vs-display-lines.md)
 - [ ] Tip 48 — Move Word-Wise
 - [ ] Tip 49 — Find by Character
 - [ ] Tip 50 — Search to Navigate
