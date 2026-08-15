@@ -2,7 +2,7 @@
 
 Working through *Practical Vim: Edit Text at the Speed of Thought* (Drew Neil), one or a few tips at a time. Each tip gets its own file in [`tips/`](./tips/). This README is the index and progress tracker.
 
-**Progress:** 41 / 121 tips documented. ✅ Chapters 1–6 complete.
+**Progress:** 42 / 121 tips documented. ✅ Chapters 1–6 complete.
 
 ## How I use this
 
@@ -83,7 +83,7 @@ Legend: `[x]` done · `[ ]` not yet.
 ### Chapter 7 — Open Files and Save Them to Disk
 
 - [x] Tip 41 — [Open a File by Its Filepath Using `:edit`](./tips/tip-41-open-file-by-filepath.md)
-- [ ] Tip 42 — Open a File by Its Filename Using `:find`
+- [x] Tip 42 — [Open a File by Its Filename Using `:find`](./tips/tip-42-open-file-by-filename.md)
 - [ ] Tip 43 — Explore the File System with netrw
 - [ ] Tip 44 — Save Files to Nonexistent Directories
 - [ ] Tip 45 — Save a File as the Super User
