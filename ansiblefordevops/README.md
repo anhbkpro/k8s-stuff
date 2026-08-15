@@ -16,7 +16,7 @@ inventories, and roles built while following along — not just notes.
 
 ## Progress
 
-- [ ] Ch 01 — _(fill in title as you start)_
+- [x] Ch 01 — [Getting Started with Ansible](ch01/README.md)
 
 ---
 
