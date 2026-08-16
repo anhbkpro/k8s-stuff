@@ -17,6 +17,7 @@ inventories, and roles built while following along — not just notes.
 ## Progress
 
 - [x] Ch 01 — [Getting Started with Ansible](ch01/README.md)
+- [x] Ch 02 — [Local Infrastructure Development: Ansible and Vagrant](ch02/README.md)
 
 ---
 

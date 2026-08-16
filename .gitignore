@@ -1,1 +1,5 @@
 .DS_Store
+
+# Vagrant local state and generated SSH keys
+.vagrant/
+*_insecure_key
