@@ -1,0 +1,30 @@
+BOX_HOSTS = {
+  "app1" => "orc-app1.test",
+  "app2" => "orc-app2.test",
+  "db"   => "orc-db.test",
+}
+
+Vagrant.configure("2") do |config|
+  BOX_HOSTS.each_with_index do |(name, hostname), i|
+    config.vm.define name do |box|
+      box.vm.hostname = hostname
+      box.vm.provider "docker" do |d|
+        d.build_dir = "."
+        d.has_ssh = true
+        d.privileged = true
+        d.create_args = [
+          "--cgroupns=host",
+          "--tmpfs=/tmp",
+          "--tmpfs=/run",
+          "--tmpfs=/run/lock",
+          "-v", "/sys/fs/cgroup:/sys/fs/cgroup:rw",
+        ]
+        d.cmd = ["/usr/sbin/init"]
+      end
+    end
+  end
+
+  config.ssh.username = "root"
+  config.ssh.private_key_path = "./.vagrant_insecure_key"
+  config.ssh.insert_key = false
+end
