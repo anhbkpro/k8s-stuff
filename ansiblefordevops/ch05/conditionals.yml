@@ -1,0 +1,42 @@
+---
+- hosts: all
+  become: yes
+
+  vars:
+    software_version: "4.6.1"
+
+  tasks:
+    - name: Do something only for major version 4 of the software.
+      debug:
+        msg: "software_version {{ software_version }} is major version 4"
+      when: software_version.split('.')[0] == '4'
+
+    - name: This should NOT run (major version check fails for a 5.x string).
+      debug:
+        msg: "this should not print"
+      when: "'5.0.0'.split('.')[0] == '4'"
+
+    - name: Check list of running crond-managed cron jobs (register demo).
+      command: crontab -l
+      register: crontab_list
+      changed_when: false
+      failed_when: crontab_list.rc not in [0, 1]  # rc=1 just means "no crontab for this user"
+
+    - name: Only runs if 'nonexistent-marker' is NOT already in the crontab.
+      debug:
+        msg: "marker not present yet, would add it here"
+      when: "'nonexistent-marker' not in crontab_list.stdout"
+
+    - name: Simulate a Composer-style "nothing to do" changed_when override.
+      command: "echo 'Nothing to install or update'"
+      register: composer_like
+      changed_when: "'Nothing to install' not in composer_like.stdout"
+
+    - name: A command that always exits non-zero, but isn't a real failure.
+      command: /bin/false
+      register: noisy_command
+      ignore_errors: yes
+
+    - name: Show that the play kept going after ignore_errors.
+      debug:
+        msg: "noisy_command failed={{ noisy_command.failed }}, but the play continued"

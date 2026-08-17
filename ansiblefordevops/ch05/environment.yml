@@ -1,0 +1,49 @@
+---
+- hosts: all
+  become: yes
+
+  vars:
+    proxy_vars:
+      http_proxy: http://example-proxy:80/
+      https_proxy: https://example-proxy:443/
+
+  tasks:
+    - name: Add an environment variable to the remote user's shell.
+      lineinfile:
+        dest: ~/.bash_profile
+        regexp: '^ENV_VAR='
+        line: "ENV_VAR=value_from_playbook"
+        create: yes
+
+    - name: Get the value of the environment variable we just added.
+      shell: 'source ~/.bash_profile && echo $ENV_VAR'
+      register: foo
+
+    - name: Print the value of the environment variable.
+      debug:
+        msg: "The variable is {{ foo.stdout }}"
+
+    - name: Add a global environment variable.
+      lineinfile:
+        dest: /etc/environment
+        regexp: '^ENV_VAR='
+        line: "ENV_VAR=value_from_etc_environment"
+
+    - name: Download a file, using proxy_vars as a proxy (will fail - no real proxy; demonstrates the environment option is applied).
+      get_url:
+        url: http://127.0.0.1/doesnotexist
+        dest: /tmp/proxy-test-download
+        timeout: 3
+      environment: "{{ proxy_vars }}"
+      register: proxy_download
+      ignore_errors: yes
+
+    - name: Show what environment the download task actually saw.
+      shell: "env | grep -i proxy || true"
+      environment: "{{ proxy_vars }}"
+      register: proxy_env
+      changed_when: false
+
+    - name: Print the proxy environment seen by the task.
+      debug:
+        msg: "{{ proxy_env.stdout_lines }}"

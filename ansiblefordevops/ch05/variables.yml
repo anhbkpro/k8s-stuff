@@ -1,0 +1,42 @@
+---
+- hosts: all
+
+  vars_files:
+    - vars_files/extra.yml
+
+  vars:
+    foo_list:
+      - one
+      - two
+      - three
+
+  tasks:
+    - debug:
+        msg: "Variable 'foo' (from vars_files) is set to {{ foo }}"
+
+    - debug:
+        msg: "admin_user resolves to '{{ admin_user }}' (host_vars 'jane' beats group_vars 'john')"
+
+    - debug:
+        msg: "Magic hostvars lookup from 'inside' the play: {{ hostvars['ch05']['admin_user'] }}"
+
+    - debug:
+        msg: "cdn_host (inventory group var) = {{ cdn_host }}"
+
+    - debug:
+        msg: "groups = {{ groups }}"
+
+    - debug:
+        msg: "group_names (for this host) = {{ group_names }}"
+
+    - debug:
+        msg: "inventory_hostname = {{ inventory_hostname }}"
+
+    - debug:
+        msg: "List access: foo_list[0]={{ foo_list[0] }}, foo_list|first={{ foo_list | first }}"
+
+    - debug:
+        var: ansible_default_ipv4
+
+    - debug:
+        msg: "IPv4 via dot syntax: {{ ansible_default_ipv4.address }}, via bracket syntax: {{ ansible_default_ipv4['address'] }}"

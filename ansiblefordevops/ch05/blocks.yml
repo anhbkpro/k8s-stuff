@@ -1,0 +1,24 @@
+---
+- hosts: all
+
+  tasks:
+    - name: Block that fails partway through, with rescue and always.
+      block:
+        - name: This will run.
+          debug:
+            msg: "step 1 of the block"
+
+        - name: This will fail.
+          command: /bin/false
+
+        - name: This will NOT run (block already failed).
+          debug:
+            msg: "step 3 of the block - should be skipped"
+      rescue:
+        - name: This will only run in case of an error in the block.
+          debug:
+            msg: "There was an error in the block."
+      always:
+        - name: This will always run, no matter what.
+          debug:
+            msg: "This always executes."

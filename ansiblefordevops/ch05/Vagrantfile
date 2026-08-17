@@ -1,0 +1,21 @@
+Vagrant.configure("2") do |config|
+  config.vm.hostname = "ch05.test"
+
+  config.vm.provider "docker" do |d|
+    d.build_dir = "."
+    d.has_ssh = true
+    d.privileged = true
+    d.create_args = [
+      "--cgroupns=host",
+      "--tmpfs=/tmp",
+      "--tmpfs=/run",
+      "--tmpfs=/run/lock",
+      "-v", "/sys/fs/cgroup:/sys/fs/cgroup:rw",
+    ]
+    d.cmd = ["/usr/sbin/init"]
+  end
+
+  config.ssh.username = "root"
+  config.ssh.private_key_path = "./.vagrant_insecure_key"
+  config.ssh.insert_key = false
+end

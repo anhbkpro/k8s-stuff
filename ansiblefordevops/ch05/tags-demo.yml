@@ -1,0 +1,20 @@
+---
+- hosts: all
+  tags: deploy
+
+  tasks:
+    - name: Task tagged 'notifications' and 'say'.
+      debug:
+        msg: "Notify on completion"
+      tags:
+        - notifications
+        - say
+
+    - name: Task tagged 'foo'.
+      debug:
+        msg: "This is the foo task"
+      tags: foo
+
+    - name: Untagged task (always runs unless the whole play is skipped).
+      debug:
+        msg: "This task has no tags of its own"

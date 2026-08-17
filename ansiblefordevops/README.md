@@ -20,6 +20,7 @@ inventories, and roles built while following along — not just notes.
 - [x] Ch 02 — [Local Infrastructure Development: Ansible and Vagrant](ch02/README.md)
 - [x] Ch 03 — [Ad-Hoc Commands](ch03/README.md)
 - [x] Ch 04 — [Ansible Playbooks](ch04/README.md)
+- [x] Ch 05 — [Ansible Playbooks - Beyond the Basics](ch05/README.md)
 
 ---
 

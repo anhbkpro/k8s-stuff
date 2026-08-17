@@ -1,0 +1,27 @@
+---
+- hosts: all
+
+  tasks:
+    - name: Run a command on the Ansible controller instead of the remote host (delegate_to).
+      command: "echo 'delegated action for {{ inventory_hostname }}'"
+      delegate_to: 127.0.0.1
+      register: delegated
+
+    - debug:
+        msg: "{{ delegated.stdout }}"
+
+    - name: Same thing, using the local_action shorthand.
+      local_action: command echo "local_action for {{ inventory_hostname }}"
+      register: local_action_result
+
+    - debug:
+        msg: "{{ local_action_result.stdout }}"
+
+    - name: Wait for this host's SSH port to be open (from the controller's point of view).
+      local_action:
+        module: wait_for
+        host: "{{ ansible_host }}"
+        port: "{{ ansible_port }}"
+        delay: 0
+        timeout: 15
+        state: started

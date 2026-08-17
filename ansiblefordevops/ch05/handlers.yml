@@ -1,0 +1,34 @@
+---
+- hosts: all
+  become: yes
+
+  handlers:
+    - name: restart chronyd
+      service: name=chronyd state=restarted
+      notify: restart crond
+
+    - name: restart crond
+      service: name=crond state=restarted
+
+  tasks:
+    - name: Ensure chrony and cronie are installed.
+      dnf:
+        name:
+          - chrony
+          - cronie
+        state: present
+
+    - name: Ensure chronyd and crond are running.
+      service:
+        name: "{{ item }}"
+        state: started
+        enabled: yes
+      with_items:
+        - chronyd
+        - crond
+
+    - name: Touch a marker file (fires multi-notify).
+      command: touch /tmp/handlers-demo-marker
+      notify:
+        - restart chronyd
+        - restart crond
