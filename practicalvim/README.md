@@ -2,7 +2,7 @@
 
 Working through *Practical Vim: Edit Text at the Speed of Thought* (Drew Neil), one or a few tips at a time. Each tip gets its own file in [`tips/`](./tips/). This README is the index and progress tracker.
 
-**Progress:** 52 / 121 tips documented. ✅ Chapters 1–7 complete.
+**Progress:** 53 / 121 tips documented. ✅ Chapters 1–7 complete.
 
 ## How I use this
 
@@ -99,7 +99,7 @@ Legend: `[x]` done · `[ ]` not yet.
 - [x] Tip 50 — [Search to Navigate](./tips/tip-50-search-to-navigate.md)
 - [x] Tip 51 — [Trace Your Selection with Precision Text Objects](./tips/tip-51-precision-text-objects.md)
 - [x] Tip 52 — [Delete Around, or Change Inside](./tips/tip-52-delete-around-or-change-inside.md)
-- [ ] Tip 53 — Mark Your Place and Snap Back to It
+- [x] Tip 53 — [Mark Your Place and Snap Back to It](./tips/tip-53-mark-your-place-and-snap-back.md)
 - [ ] Tip 54 — Jump Between Matching Parentheses
 
 ### Chapter 9 — Navigate Between Files with Jumps
