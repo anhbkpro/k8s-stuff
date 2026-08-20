@@ -2,7 +2,7 @@
 
 Working through *Practical Vim: Edit Text at the Speed of Thought* (Drew Neil), one or a few tips at a time. Each tip gets its own file in [`tips/`](./tips/). This README is the index and progress tracker.
 
-**Progress:** 55 / 121 tips documented. ✅ Chapters 1–8 complete.
+**Progress:** 56 / 121 tips documented. ✅ Chapters 1–8 complete.
 
 ## How I use this
 
@@ -105,7 +105,7 @@ Legend: `[x]` done · `[ ]` not yet.
 ### Chapter 9 — Navigate Between Files with Jumps
 
 - [x] Tip 55 — [Traverse the Jump List](./tips/tip-55-traverse-the-jump-list.md)
-- [ ] Tip 56 — Traverse the Change List
+- [x] Tip 56 — [Traverse the Change List](./tips/tip-56-traverse-the-change-list.md)
 - [ ] Tip 57 — Jump to the Filename Under the Cursor
 - [ ] Tip 58 — Snap Between Files Using Global Marks
 
